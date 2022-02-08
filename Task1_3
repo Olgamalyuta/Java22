@@ -1,0 +1,11 @@
+package Task1_3;
+
+public class Task1_3 {
+    public static void main(String[] args) {
+        int a=5;
+        int b=6;
+        double perim = Math.sqrt(Math.pow(a,2)+Math.pow(b,2))+b+a;
+        double square = a*b/2;
+        System.out.println("Периметр равняется "+ perim +  " Площадь равняется " + square);
+    }
+}
