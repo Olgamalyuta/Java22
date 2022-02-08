@@ -1,0 +1,21 @@
+package Task1_5;
+
+import java.util.Scanner;
+
+public class Task1_5 {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Введите первое число");
+        double a1=s.nextDouble();
+        System.out.println("Введите второе число");
+        double a2=s.nextDouble();
+        System.out.println("Введите третье число");
+        double a3=s.nextDouble();
+        if (a1>=0) {a1=Math.pow(a1,2);} else {a1=Math.pow(a1,4);}
+        if (a2>=0) {a2=Math.pow(a2,2);} else {a2=Math.pow(a2,4);}
+        if (a3>=0) {a3=Math.pow(a3,2);} else {a3=Math.pow(a3,4);}
+        System.out.println("a1= "+ a1);
+        System.out.println("a2= "+ a2);
+        System.out.println("a3= "+ a3);
+    }
+}
