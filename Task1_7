@@ -1,0 +1,17 @@
+package Task1_7;
+
+public class Task1_7 {
+    public static void main(String[] args) {
+
+        int x = 0;
+        int b = 10;
+        int h = 1;
+
+        while (x <= b) {
+            double fx = Math.pow(Math.sin(x), 2) - Math.cos(2 * x);
+            System.out.println("x = "+x+" Fx= " +fx);
+            x = x + h;
+        }
+
+    }
+}
