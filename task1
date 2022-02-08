@@ -1,0 +1,12 @@
+package Task1_2;
+
+public class Task1_2 {
+    public static void main(String[] args) {
+        double a=1.2;
+        double b=2.1;
+        double c=3.5;
+        double d =  Math.sqrt(Math.pow(b,2)+4*a*c);
+        double result= ((b+d)/2*a) -Math.pow(a,3)*c+Math.pow(b,-2);
+        System.out.println(result);
+    }
+}
