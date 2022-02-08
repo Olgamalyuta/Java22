@@ -1,0 +1,14 @@
+package Task1_1;
+
+import java.util.Scanner;
+
+public class Task1_1 {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Введите 4х значное число");
+        int a1=s.nextInt();
+        if (a1/1000+(a1/100)%10==(a1/10) % 10 + a1%10) System.out.println("True");
+        else System.out.println("False");
+    
+    }
+}
