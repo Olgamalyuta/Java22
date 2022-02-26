@@ -1,0 +1,93 @@
+
+package by.epam.Kovalenko.Task3;
+
+import java.util.LinkedList;
+
+public class LogicJar {
+    public LogicJar() {
+    }
+
+    static boolean isDelim(char c) {
+        return c == ' ';
+    }
+
+    boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/';
+    }
+
+    int priorityChar(char op) {
+        switch(op) {
+        case '*':
+        case '/':
+            return 2;
+        case '+':
+        case '-':
+            return 1;
+        case ',':
+        case '.':
+        default:
+            return -1;
+        }
+    }
+
+    static void processOperator(LinkedList<Integer> st, char op) {
+        int r = (Integer)st.removeLast();
+        int l = (Integer)st.removeLast();
+        switch(op) {
+        case '*':
+            st.add(l * r);
+            break;
+        case '+':
+            st.add(l + r);
+        case ',':
+        case '.':
+        default:
+            break;
+        case '-':
+            st.add(l - r);
+            break;
+        case '/':
+            st.add(l / r);
+        }
+
+    }
+
+    public int calcString(String s) {
+        LinkedList<Integer> st = new LinkedList();
+        LinkedList<Character> op = new LinkedList();
+
+        for(int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (!isDelim(c)) {
+                if (c == '(') {
+                    op.add('(');
+                } else if (c == ')') {
+                    while((Character)op.getLast() != '(') {
+                        processOperator(st, (Character)op.removeLast());
+                    }
+
+                    op.removeLast();
+                } else if (this.isOperator(c)) {
+                    while(!op.isEmpty() && this.priorityChar((Character)op.getLast()) >= this.priorityChar(c)) {
+                        processOperator(st, (Character)op.removeLast());
+                    }
+
+                    op.add(c);
+                } else {
+                    String operand;
+                    for(operand = ""; i < s.length() && Character.isDigit(s.charAt(i)); operand = operand + s.charAt(i++)) {
+                    }
+
+                    --i;
+                    st.add(Integer.parseInt(operand));
+                }
+            }
+        }
+
+        while(!op.isEmpty()) {
+            processOperator(st, (Character)op.removeLast());
+        }
+
+        return (Integer)st.get(0);
+    }
+}
